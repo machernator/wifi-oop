@@ -53,8 +53,6 @@ class Person
         $this->nachname = $data['nachname'];
     }
 
-
-
     // Methoden der Klasse (Funktionen)
     public function greeting() {
         /* 
