@@ -58,14 +58,15 @@
         $p1 = new Person($person);
         $p2 = new Person($person2);
 
+        echo $p1->greeting();
+        echo '<br>';
+        echo $p2->greeting();
+
         // Aufrufen einer Methode: $nameDesObjekts->nameDerMethode()
         $p1->greeting();
         // Aufrufen eines Attributs: $nameDesObjekts->nameDesAttributs
         $p1->test = 'manipuliert';
         echo $p1->test;
-
-
-    
     ?>
 </body>
 </html>

@@ -31,13 +31,44 @@ class Person
         von PHP aufgerufen. Er muss public deklariert sein
     */
     public function __construct(array $data) {
-        print_r($data);
+        /*
+            Methoden können auf Klassenattribute zugreifen.
+            Beim Zugriff muss aber das Objekt angegeben werden. Da zum
+            Zeitpunkt der Klassendeklaration noch nicht bekannt ist, 
+            in welcher Variable das Objekt gespeichert wird, verwenden
+            einen Platzhalter: $this (Ich, meines)
+
+            $this macht keinen Unterschied bei den Zugriffsmodifikatoren 
+            (public, private, protected). Der interne Zugriff unterliegt
+            keinen Einschränkungen.
+
+            $anrede wäre eine lokale Variable, die nur bis zum Beenden
+            des Aufrus existiert. Member Attribute müssen über $this->member
+            aufgerufen werden.
+        */
+        $this->kdnr = $data['kdnr'];
+        $this->anrede = $data['anrede'];
+        $this->titel = $data['titel'];
+        $this->vorname = $data['vorname'];
+        $this->nachname = $data['nachname'];
     }
 
 
 
     // Methoden der Klasse (Funktionen)
     public function greeting() {
-        echo "Greeting";
+        /* 
+        Lokale Variable!
+        $anrede = 'xxx';
+        echo '<br>';
+        echo $anrede; */
+        return 'Guten Tag ' .
+            $this->anrede . 
+            ' ' .
+            $this->titel . 
+            ' ' .
+            $this->vorname . 
+            ' ' .
+            $this->nachname;
     }
 }
