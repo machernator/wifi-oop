@@ -73,7 +73,17 @@ class Character {
      * @return void
      */
     public function move(int $x, int $y) {
-        echo "moved";
+        // abs ermittelt den positiven Wert einer Zahl
+        if ($x <= abs($this->maxStepsX) && $y <= abs($this->maxStepsY)) {
+            // Kurz: $this->posX += $x;
+            $this->posX = $this->posX + $x; 
+            $this->posY = $this->posY + $y;
+        }
+        else {
+            echo 'Feld kann nicht erreicht werden.';
+        }
+
+        echo '<br>Neue Position: ',  $this->posX, ' ', $this->posY;
     }
 
     public function fight() {
