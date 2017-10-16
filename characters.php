@@ -10,6 +10,7 @@
     <h1>Characters eines Rollenspiels</h1>
     <?php
     require_once 'inc/Character.class.php';
+    require_once 'inc/Hero.class.php';
     /*
         Konstanten werden einmal initialisiert und können ihren Wert nicht ändern
 
@@ -45,13 +46,15 @@
         'maxStepsY' => 3
     ];
 
-    $c1 = new Character($character1);
+    $c1 = new Hero($character1);
     $c1->move(2, 1);
     $c1->move(-3, -2);
     $c1->move(10, -12);
 
     $c1->eat(HUHN);
     $c1->eat(GIFT);
+
+    $c1->enchant();
 
     echo '<pre>';
     print_r($c1);
