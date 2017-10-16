@@ -22,6 +22,7 @@
         'name' => 'Ignaz',
         'posX' => 5,
         'posY' => 2,
+        'health' => 320,
         'strength' => 100,
         'maxStepsX' => 3,
         'maxStepsY' => 3

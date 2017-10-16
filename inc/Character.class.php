@@ -33,7 +33,14 @@ class Character {
             $this->name = $conf['name'];
         }
         else {
-            die('Game Over: Name mitgegeben.');
+            die('Game Over: Name nicht mitgeben.');
+        }
+
+        if (array_key_exists('health', $conf)) {
+            $this->health = $conf['health'];
+        }
+        else {
+            die('Game Over: Lebenskraft nicht mitgegeben.');
         }
 
         if (array_key_exists('strength', $conf)) {
