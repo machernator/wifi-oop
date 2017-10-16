@@ -86,8 +86,19 @@ class Character {
         echo '<br>Neue Position: ',  $this->posX, ' ', $this->posY;
     }
 
-    public function fight() {
-        echo "fighting";
+    public function fight(Character $other) {
+        echo $this->name, ' fights ', $other->getName();
+        // Bin ich stärker als $other, wird die Differenz in der Stärke
+        // $other von health abgezogen, anonsten wird 0 abgezogen.
+    }
+
+    /**
+     * Gibt den protected $name zurück
+     *
+     * @return string
+     */
+    public function getName() : string {
+        return $this->name;
     }
     
     /**

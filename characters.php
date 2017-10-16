@@ -11,6 +11,7 @@
     <?php
     require_once 'inc/Character.class.php';
     require_once 'inc/Hero.class.php';
+    require_once 'inc/Orc.class.php';
     /*
         Konstanten werden einmal initialisiert und können ihren Wert nicht ändern
 
@@ -28,8 +29,8 @@
     define('APFEL', 1);
     define('GIFT', -10);
 
-   /*  $c1 = new Character('Ignaz');
-    $c1->eat();
+   /*  $hero = new Character('Ignaz');
+    $hero->eat();
 
     echo '<br>';
 
@@ -46,19 +47,40 @@
         'maxStepsY' => 3
     ];
 
-    $c1 = new Hero($character1);
-    $c1->move(2, 1);
-    $c1->move(-3, -2);
-    $c1->move(10, -12);
+    $character2 = [
+        'name' => 'Lalobe',
+        'posX' => 10,
+        'posY' => 14,
+        'health' => 240,
+        'strength' => 200,
+        'protection' => 10,
+        'maxStepsX' => 2,
+        'maxStepsY' => 2
+    ];
 
-    $c1->eat(HUHN);
-    $c1->eat(GIFT);
+    $hero = new Hero($character1);
+    $hero->move(2, 1);
+    $hero->move(-3, -2);
+    $hero->move(10, -12);
 
-    $c1->enchant();
+    $hero->eat(HUHN);
+    $hero->eat(GIFT);
+
+    $hero->enchant();
 
     echo '<pre>';
-    print_r($c1);
+    print_r($hero);
     echo '</pre>';
+
+    $orc1 = new Orc($character2);
+    $orc1->callCommander('Ludwig');
+
+    echo '<pre>';
+    print_r($orc1);
+    echo '</pre>';
+
+    echo '<hr>';
+    $hero->fight($orc1);
 
     ?>
 </body>
