@@ -80,7 +80,7 @@ class Character {
             $this->posY = $this->posY + $y;
         }
         else {
-            echo 'Feld kann nicht erreicht werden.';
+            echo '<br>Feld kann nicht erreicht werden.';
         }
 
         echo '<br>Neue Position: ',  $this->posX, ' ', $this->posY;
@@ -89,9 +89,17 @@ class Character {
     public function fight() {
         echo "fighting";
     }
-
-    public function eat() {
-        echo $this->name .  " is eating";
+    
+    /**
+     * Erhöht $health um $power
+     *
+     * @param int $power
+     * @return void
+     */
+    public function eat(int $power) {
+        echo $this->name .  " is eating<br>";
+        $this->health += $power;
+        echo $this->name,  " health: ", $this->health, '<br>';
     }
 
     protected function die() {

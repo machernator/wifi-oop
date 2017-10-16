@@ -10,6 +10,23 @@
     <h1>Characters eines Rollenspiels</h1>
     <?php
     require_once 'inc/Character.class.php';
+    /*
+        Konstanten werden einmal initialisiert und können ihren Wert nicht ändern
+
+        Mit define definierte Konstanten können auch in functions, if, while, for etc. definiert werden.
+
+        Alternativ können Konstanten mit const deklariert werden.
+
+        const HUHN = 5;
+
+        Diese müssen aber im globalen Gültigkeitsbereich deklariert werden.
+        Dh. NICHT in function, for, while etc.
+    */
+    define('HUHN', 5);
+    define('BROT', 3);
+    define('APFEL', 1);
+    define('GIFT', -10);
+
    /*  $c1 = new Character('Ignaz');
     $c1->eat();
 
@@ -29,6 +46,13 @@
     ];
 
     $c1 = new Character($character1);
+    $c1->move(2, 1);
+    $c1->move(-3, -2);
+    $c1->move(10, -12);
+
+    $c1->eat(HUHN);
+    $c1->eat(GIFT);
+
     echo '<pre>';
     print_r($c1);
     echo '</pre>';
