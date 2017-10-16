@@ -96,10 +96,11 @@ class Character {
         // Bin ich stärker als $other, wird die Differenz in der Stärke
         // $other von health abgezogen, anonsten wird 0 abgezogen.
         if ($this->strength > $other->getStrength()) {
-            $damage = $this->strength - $other->getStrength();
+            $damage = abs($this->strength - $other->getStrength());
         }
         else {
-            $damage = 2;
+            // TODO: guten Wert berechnen
+            $damage = abs(round(($this->strength - $other->getStrength()) / 10));
         }
         
         $other->damage($damage);
@@ -123,6 +124,11 @@ class Character {
         }
     }
 
+    /**
+     * Gibt die aktuelle Stärke zurück
+     *
+     * @return int
+     */
     public function getStrength() : int {
         return $this->strength;
     }
