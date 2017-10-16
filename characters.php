@@ -81,6 +81,15 @@
 
     echo '<hr>';
     $hero->fight($orc1);
+    $orc1->fight($hero);
+    
+    echo '<pre>';
+    print_r($orc1);
+    echo '</pre>';
+
+    echo '<pre>';
+    print_r($hero);
+    echo '</pre>';
 
     ?>
 </body>

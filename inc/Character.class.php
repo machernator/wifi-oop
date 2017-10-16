@@ -86,10 +86,45 @@ class Character {
         echo '<br>Neue Position: ',  $this->posX, ' ', $this->posY;
     }
 
+    /**
+     * Einen anderen Character bekämpfen. Je nach Stärke wird unterschieldlicher Schaden zugefügt
+     *
+     * @param Character $other
+     * @return void
+     */
     public function fight(Character $other) {
-        echo $this->name, ' fights ', $other->getName();
         // Bin ich stärker als $other, wird die Differenz in der Stärke
         // $other von health abgezogen, anonsten wird 0 abgezogen.
+        if ($this->strength > $other->getStrength()) {
+            $damage = $this->strength - $other->getStrength();
+        }
+        else {
+            $damage = 2;
+        }
+        
+        $other->damage($damage);
+        
+        echo $this->name, ' fights ', $other->getName(), ' damage: ', $damage, '<br>';
+
+    }
+
+    /**
+     * Schaden wird zugefügt
+     *
+     * @param int $hit
+     * @return void
+     */
+    public function damage(int $hit) {
+        $this->health -= $hit;
+
+        // Character stirbt, wenn $health 0 erreicht
+        if ($this->health <= 0) {
+            $this->die();
+        }
+    }
+
+    public function getStrength() : int {
+        return $this->strength;
     }
 
     /**
