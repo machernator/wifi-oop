@@ -102,7 +102,7 @@ class Character {
             // TODO: guten Wert berechnen
             $damage = abs(round(($this->strength - $other->getStrength()) / 10));
         }
-        
+    
         $other->damage($damage);
         
         echo $this->name, ' fights ', $other->getName(), ' damage: ', $damage, '<br>';
